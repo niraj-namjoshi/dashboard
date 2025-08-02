@@ -23,7 +23,10 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 from google import genai
+load_dotenv()
 
+# Get API key from environment
+api_k = os.getenv("api_k")
 client = genai.Client(api_key=api_k)
 # Initialize FastAPI app
 app = FastAPI(
