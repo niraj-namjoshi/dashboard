@@ -1,0 +1,271 @@
+/* Reset and base styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* Main container */
+.container {
+  display: flex;
+  height: 100vh;
+  gap: 2px;
+}
+
+/* Left side container */
+.left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+}
+
+/* Right side container */
+.right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Top left section - Chart area */
+.top-left {
+  flex: 1;
+  background: linear-gradient(135deg, #e8f4f8 0%, #d1e7dd 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Bottom left section */
+.bottom-left {
+  flex: 1;
+  background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.bottom-left h3 {
+  margin-top: 0;
+  color: #333;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 8px;
+}
+
+#barChart {
+  width: 100% !important;
+  height: 220px !important;
+  max-width: 100%;
+  margin-top: 12px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+/* Top right section - Problem statements */
+.top {
+  flex: 1;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.top h2 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  color: #333;
+  border-bottom: 3px solid #28a745;
+  padding-bottom: 10px;
+}
+
+/* Bottom right section */
+.bottom {
+  flex: 1;
+  background: linear-gradient(135deg, #dee2e6 0%, #ced4da 100%);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.bottom h3 {
+  margin-top: 0;
+  color: #333;
+  border-bottom: 2px solid #ffc107;
+  padding-bottom: 8px;
+}
+
+/* Chart styling */
+#myChart {
+  max-width: 100%;
+  max-height: 100%;
+  min-height: 300px;
+}
+
+/* Problem statement grid */
+.summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Individual problem boxes */
+.cluster-box {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  min-height: 100px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.cluster-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  border-color: #007bff;
+}
+
+.cluster-header {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #007bff;
+  padding: 6px 12px;
+  background: linear-gradient(90deg, #007bff, #0056b3);
+  color: white;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.cluster-summary {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #495057;
+}
+
+/* Loading and error states */
+.loading {
+  text-align: center;
+  color: #6c757d;
+  font-style: italic;
+}
+
+.error {
+  color: #dc3545;
+  background: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  padding: 12px;
+  margin: 10px 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  .summary-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+  .top-left, .bottom-left, .top, .bottom {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .summary-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+  .cluster-box {
+    padding: 10px;
+    min-height: 80px;
+  }
+}
+.bottom form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-end;
+}
+#userInput {
+  flex: 1;
+  resize: none;
+  width: 100%;
+  font-size: 1.1em;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  min-height: 200px;
+  margin-bottom: 10px;
+  background: #fff;
+  color: #222;
+  transition: border 0.2s;
+}
+#userInput:focus {
+  border: 2px solid #007bff;
+  outline: none;
+}
+#inputForm button {
+  margin-top: 0;
+  padding: 14px 0;
+  font-size: 1.2em;
+  background: linear-gradient(90deg,#007bff,#0056b3);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+#inputForm button:hover {
+  background: linear-gradient(90deg,#0056b3,#007bff);
+}
+@media (max-width: 768px) {
+  .bottom form {
+    min-height: 200px;
+  }
+  #userInput {
+    min-height: 120px;
+    font-size: 1em;
+    padding: 10px;
+  }
+  #inputForm button {
+    font-size: 1em;
+    padding: 10px 0;
+  }
+}
