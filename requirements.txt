@@ -8,7 +8,7 @@ kneed
 sentence-transformers
 transformers
 torch
-google-generativeai
+google
 openai
 python-dotenv
 pydantic
